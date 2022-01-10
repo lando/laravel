@@ -37,7 +37,7 @@ module.exports = {
     defaultFiles: {
       php: 'php.ini',
     },
-    php: '7.4',
+    php: '7.3',
     services: {appserver: {overrides: {environment: {
       APP_LOG: 'errorlog',
     }}}},
