@@ -1,4 +1,4 @@
-name: laravel Tests
+name: Laravel Tests
 
 on:
   pull_request:
