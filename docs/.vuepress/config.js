@@ -37,7 +37,7 @@ module.exports = {
         children: [
           {
             text: 'Importing a remote database and files into Lando using Laravel Envoy',
-            link: '/using-browsersync.md',
+            link: '/import-remote-db-laravel-envoy.md',
           },
         ],
       },
