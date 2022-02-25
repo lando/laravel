@@ -31,6 +31,16 @@ module.exports = {
       '/getting-started.md',
       '/config.md',
       '/tooling.md',
+      {
+        text: 'Guides',
+        collapsible: true,
+        children: [
+          {
+            text: 'Importing a remote database and files into Lando using Laravel Envoy',
+            link: '/import-remote-db-laravel-envoy.md',
+          },
+        ],
+      },
       '/support.md',
       {text: 'Examples', link: 'https://github.com/lando/laravel/tree/main/examples'},
       {text: 'Release Notes', link: 'https://github.com/lando/laravel/releases'},
