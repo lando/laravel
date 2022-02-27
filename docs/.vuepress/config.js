@@ -26,25 +26,25 @@ module.exports = {
     sidebar: [
       {
         text: 'Overview',
-        link: '/index.md',
+        link: '/index.html',
       },
-      '/getting-started.md',
-      '/config.md',
-      '/tooling.md',
+      '/getting-started.html',
+      '/config.html',
+      '/tooling.html',
       {
         text: 'Guides',
         collapsible: true,
         children: [
           {
             text: 'Importing a remote database and files into Lando using Laravel Envoy',
-            link: '/import-remote-db-laravel-envoy.md',
+            link: '/import-remote-db-laravel-envoy.html',
           },
         ],
       },
-      '/support.md',
+      '/support.html',
       {text: 'Examples', link: 'https://github.com/lando/laravel/tree/main/examples'},
       {text: 'Release Notes', link: 'https://github.com/lando/laravel/releases'},
-      '/development.md',
+      '/development.html',
     ],
   },
 };
