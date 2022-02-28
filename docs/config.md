@@ -30,7 +30,7 @@ Note that if the above config options are not enough, all Lando recipes can be f
 
 ## Choosing a php version
 
-You can set `php` to any version that is available in our [php service](https://docs.lando.dev/php.html). However, you should consult the [Laravel requirements](https://laravel.com/docs/5.7/installation#web-server-configuration) to make sure that version is actually supported by Laravel itself.
+You can set `php` to any version that is available in our [php service](https://docs.lando.dev/php). However, you should consult the [Laravel requirements](https://laravel.com/docs/5.7/installation#web-server-configuration) to make sure that version is actually supported by Laravel itself.
 
 The [recipe config](https://docs.lando.dev/config/recipes.html#config) to set the Laravel recipe to use `php` version `7.1` is shown below:
 
@@ -42,7 +42,7 @@ config:
 
 ## Choosing a composer version
 
-You can set `composer_version` to any version that is available in our [php service](https://docs.lando.dev/php.html#installing-composer).
+You can set `composer_version` to any version that is available in our [php service](https://docs.lando.dev/php/config.html#installing-composer).
 
 ```yaml
 recipe: laravel
@@ -227,7 +227,7 @@ You can also get the above information, and more, by using the [`lando info`](ht
 
 ## Using custom config files
 
-You may need to override our [default Laravel config](https://github.com/lando/cli/tree/main/plugins/lando-recipes/recipes/laravel) with your own.
+You may need to override our [default Laravel config](https://github.com/lando/laravel/tree/main/recipes/laravel) with your own.
 
 If you do this, you must use files that exist inside your application and express them relative to your project root as shown below:
 
