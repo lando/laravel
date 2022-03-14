@@ -13,9 +13,6 @@ mailchimp:
   button: Sign me up!
 ---
 
-# Importing a remote database and files into Lando using Laravel Envoy
-
-
 If you are hosted on a server like Linode, Digital Ocean, AWS or the like you can still cook up a `lando pull` command to pull your database and/or file assets down from production using Laravel Envoy.
 
 This will work for all Lando apps that extend from `laempy` recipes like: LAMP, LEMP, Dupal 6/7/8, Backdrop, Joomla, WordPress and Laravel.
