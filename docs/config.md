@@ -146,7 +146,7 @@ config:
 
 By default, Laravel comes with a `.env` configuration file set to use `homestead`. You will want to modify the following `.env` key so that it makes sense for use with Lando.
 
-What that file would look like if you installed laravel [as above](#getting-started) is shown below:
+What that file would look like if you installed laravel [as above](https://docs.lando.dev/laravel/getting-started.html) is shown below:
 
 Note that your file might be slightly different depending on your configuration.
 
