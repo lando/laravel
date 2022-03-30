@@ -50,7 +50,14 @@ module.exports = {
     constructor(id, options = {}) {
       options = _.merge({}, config, options);
       // Add the laravel cli installer command
-      options.composer['laravel/installer'] = '*';
+      if (options.php >= 7.3) {
+        options.composer['laravel/installer'] = '^4.0.0';
+      } else if (options.php < 7.2) {
+        options.composer['laravel/installer'] = '^2.3.0';
+      } else {
+        options.composer['laravel/installer'] = '^3.2.0';
+      }
+
       // Add in artisan tooling
       // @NOTE: does artisan always live one up of the webroot?
       options.tooling.artisan = {

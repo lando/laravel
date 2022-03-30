@@ -11,7 +11,9 @@ jobs:
     strategy:
       matrix:
         leia-tests:
-          - examples/laravel
+          - examples/7.2
+          - examples/7.4
+          - examples/8.1
         lando-versions:
           - edge
         os:

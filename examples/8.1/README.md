@@ -1,4 +1,4 @@
-Laravel Example
+Laravel PHP 8.1 Example
 ===============
 
 This example exists primarily to test the following documentation:
@@ -16,7 +16,7 @@ lando poweroff
 
 # Initialize an empty laravel recipe
 rm -rf laravel && mkdir -p laravel && cd laravel
-lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel --option cache=redis
+lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel --option cache=redis --option php='8.1'
 
 # Should compose create-project a new laravel app
 cd laravel
@@ -38,9 +38,12 @@ Run the following commands to validate things are rolling as they should.
 cd laravel
 lando ssh -s appserver -c "curl -L localhost" | grep "Laravel"
 
+# Should install 4.x version of laravel/installer
+lando ssh -s appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v4.'
+
 # Should use 7.4 as the default php version
 cd laravel
-lando php -v | grep "PHP 7.4"
+lando php -v | grep "PHP 8.1"
 
 # Should be running apache 2.4 by default
 cd laravel
