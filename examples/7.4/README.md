@@ -39,6 +39,7 @@ cd laravel
 lando ssh -s appserver -c "curl -L localhost" | grep "Laravel"
 
 # Should install 4.x version of laravel/installer
+cd laravel
 lando ssh -s appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v4.'
 
 # Should use 7.4 as the default php version
