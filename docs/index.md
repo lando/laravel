@@ -19,3 +19,41 @@ Lando offers a configurable [recipe](https://docs.lando.dev/config/recipes.html)
 * Configurable `composer`
 * Configurable caching backend (`redis` or `memcached`)
 * `xdebug`
+
+```
+name: laravel
+recipe: laravel
+config:
+  php: "8.0"
+  xdebug: debug
+  database: mysql
+  config:
+    php: .lando.php.ini
+services:
+  appserver:
+    config:
+      php: .lando.php.ini
+      type: php:8.0
+      overrides:
+        environment:
+          PHP_IDE_CONFIG: "serverName=appserver"
+    xdebug: debug
+
+  pma:
+    type: phpmyadmin
+    hosts:
+      - database
+  mailhog:
+    type: mailhog
+    hogfrom:
+      - appserver
+  redis:
+    type: redis
+    portforward: true
+proxy:
+  pma:
+    - pma-main.lndo.site
+  mailhog:
+    - mailhog-main.lndo.site
+
+```
