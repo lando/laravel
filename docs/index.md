@@ -16,6 +16,6 @@ Lando offers a configurable [recipe](https://docs.lando.dev/config/recipes.html)
 * Configurable `webroot`
 * Configurable web server (`apache` or `nginx`)
 * Configurable database backend (`mariadb`, `mysql`, or `postgres`)
-* Configurable `composer`
+* [Configurable `composer`](https://docs.lando.dev/php/config.html#installing-composer)
 * Configurable caching backend (`redis` or `memcached`)
 * `xdebug`
