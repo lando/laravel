@@ -16,6 +16,7 @@ Before you get started with this recipe, we assume that you have:
 
 Try out the relevant commands below to spin up a new Landoified vanilla Laravel site.
 
+For the latest version of laravel 9
 ```bash
 # Initialize a laravel recipe
 lando init \
@@ -25,7 +26,7 @@ lando init \
   --name my-first-laravel-app
 
 # Install laravel
-lando ssh -c "composer global require laravel/installer && laravel new app"
+lando ssh -c "composer create-project laravel/laravel app"
 
 # Start it up
 lando start
