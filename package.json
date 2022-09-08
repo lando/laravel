@@ -1,7 +1,7 @@
 {
   "name": "@lando/laravel",
   "description": "A Lando plugin that provides a tight integration with Laravel.",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "author": "Mike Pirog @pirog",
   "license": "GPL-3.0",
   "repository": "lando/laravel",
