@@ -9,6 +9,7 @@ jobs:
     env:
       TERM: xterm
     strategy:
+      fail-fast: false
       matrix:
         leia-tests:
           - examples/7.1
@@ -38,30 +39,21 @@ jobs:
         run: |
           docker --version | grep "20.10."
           docker-compose --version | grep "1.29."
+      - name: Grab latest edge Lando CLI
+        run: |
+          sudo curl -fsSL -o /usr/local/bin/lando "https://files.lando.dev/cli/lando-linux-x64-${{ matrix.lando-versions }}"
+          sudo chmod +x /usr/local/bin/lando
       - name: Move in lando config appropriate for testing
         run: |
           mkdir -p ~/.lando/cache
           cp -f actions-lando-config.yml ~/.lando/config.yml
           echo false > ~/.lando/cache/report_errors
-          # This part here is cloning a second repository
-      - name: Checkout Lando CLI from  GitHub
-        uses: actions/checkout@v2
-        with:
-          repository: lando/cli
-          path: cli
-          ref: main
-      - name: Install Lando from GitHub Source
-        run: |
-          cd cli
-          yarn install --prefer-offline --frozen-lockfile
-          yarn build:cli
-          sudo mv ./dist/@lando/cli /usr/local/bin/lando
-          sudo chmod +x /usr/local/bin/lando
+          lando --clear
       - name: Verify Lando works and we are dogfooding this plugin for tests
         run: |
           lando --clear
           lando version
-          lando config --path plugins | grep laravel | grep /home/runner/work/laravel/laravel || echo "::error:: Not dogfooding this plugin correctly! "
+          lando config --path plugins | grep laravel | grep /home/runner/work/laravel/laravel || (echo "::error:: Not dogfooding this plugin correctly!" && exit 1)
 
       # This block should eventually become use lando/actions-leia@v2
       # @NOTE? Do we want a way for our leia-action to configure apparmor since
