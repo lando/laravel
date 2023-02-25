@@ -16,6 +16,7 @@ jobs:
           - examples/7.2
           - examples/7.4
           - examples/8.1
+          - examples/8.1-mysql8
         lando-versions:
           - edge
         os:
