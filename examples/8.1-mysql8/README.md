@@ -17,6 +17,7 @@ lando poweroff
 # Initialize an empty laravel recipe
 rm -rf mysql8 && mkdir -p mysql8 && cd mysql8
 lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel-mysql8 --option cache=redis --option php='8.1' --option database=mysql:8.0.22
+cp -f ../../.lando.local.yml .lando.local.yml && cat .lando.local.yml
 
 # Should compose create-project a new laravel app
 cd mysql8
@@ -24,7 +25,6 @@ lando composer create-project --prefer-dist laravel/laravel app
 
 # Should start up successfully
 cd mysql8
-echo -e "\nplugins:\n  \"@lando/laravel/\": ./../../" >> .lando.yml
 lando start
 ```
 
