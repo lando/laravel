@@ -18,11 +18,16 @@ jobs:
         node-version:
           - '18'
         leia-test:
+          - examples/laravel-init
+          - examples/laravel-custom
+          - examples/laravel-defaults
+          - examples/laravel-export
+          - examples/laravel-import
+          - examples/laravel-mysql8
+          - examples/laravel-nginx
           - examples/7.1
           - examples/7.2
           - examples/7.4
-          - examples/8.1
-          - examples/8.1-mysql8
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
