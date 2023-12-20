@@ -1,9 +1,9 @@
-WordPress Example
-=================
+Laravel PHP 8.1 Example
+===============
 
 This example exists primarily to test the following documentation:
 
-* [WordPress Recipe](https://docs.devwithlando.io/tutorials/laravel.html)
+* [Laravel Recipe](https://docs.devwithlando.io/tutorials/laravel.html)
 
 Start up tests
 --------------
@@ -14,13 +14,17 @@ Run the following commands to get up and running with this example.
 # Should poweroff
 lando poweroff
 
-# Should initialize the latest WordPress codebase
+# Initialize an empty laravel recipe
 rm -rf mysql8 && mkdir -p mysql8 && cd mysql8
-lando init --source remote --remote-url https://laravel.org/latest.tar.gz --recipe laravel --webroot laravel --name lando-laravel-mysql8 --option database=mysql:8.0.22
+lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel-mysql8 --option cache=redis --option php='8.1' --option database=mysql:8.0.22
+cp -f ../../.lando.local.yml .lando.local.yml && cat .lando.local.yml
+
+# Should compose create-project a new laravel app
+cd mysql8
+lando composer create-project --prefer-dist laravel/laravel app
 
 # Should start up successfully
 cd mysql8
-cp ../../.lando.local.yml .
 lando start
 ```
 
@@ -30,13 +34,17 @@ Verification commands
 Run the following commands to validate things are rolling as they should.
 
 ```bash
-# Should return the WordPress installation page by default
+# Should return the laravel default page
 cd mysql8
-lando ssh -s appserver -c "curl -L localhost" | grep "WordPress"
+lando ssh -s appserver -c "curl -L localhost" | grep "Laravel"
+
+# Should install 4.x version of laravel/installer
+cd mysql8
+lando ssh -s appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v4.'
 
 # Should use 7.4 as the default php version
 cd mysql8
-lando php -v | grep "PHP 7.4"
+lando php -v | grep "PHP 8.1"
 
 # Should be running apache 2.4 by default
 cd mysql8
@@ -51,21 +59,17 @@ lando mysql -V | grep 8.0
 cd mysql8
 lando php -m | grep xdebug || echo $? | grep 1
 
+# Should have redis running
+cd mysql8
+lando ssh -s cache -c "redis-cli CONFIG GET databases"
+
 # Should use the default database connection info
 cd mysql8
 lando mysql -ularavel -plaravel laravel -e quit
 
-# Should have the 2.x wp-cli
+# Should have artisan available
 cd mysql8
-lando wp cli version | grep "WP-CLI 2."
-
-# Should create a wp-config file
-cd mysql8/laravel
-lando wp config create --dbname=laravel --dbuser=laravel --dbpass=laravel --dbhost=database --force
-
-# Should be able to install laravel
-cd mysql8/laravel
-lando wp core install --url=lando-laravel.lndo.site --title=LandoPress --admin_user=admin --admin_email=mike@pirog.com --skip-email
+lando artisan env
 ```
 
 Destroy tests

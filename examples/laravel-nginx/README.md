@@ -1,8 +1,8 @@
-# Wordpress Nginx Example
+# Laravel Nginx Example
 
 This example exists primarily to test the following documentation:
 
-* [Wordpress Recipe](https://docs.lando.dev/laravel/config.html)
+* [Laravel Recipe](https://docs.lando.dev/laravel/config.html)
 
 Start up tests
 --------------

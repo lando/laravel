@@ -1,8 +1,8 @@
-# Wordpress Import Example
+# Laravel Import Example
 
 This example exists primarily to test the following documentation:
 
-* [Wordpress Recipe](https://docs.lando.dev/laravel/tooling.html#importing-your-database)
+* [Laravel Recipe](https://docs.lando.dev/laravel/tooling.html#importing-your-database)
 
 Start up tests
 --------------
