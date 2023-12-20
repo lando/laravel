@@ -11,18 +11,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        lando-version:
+          - 3-dev-slim
+        os:
+          - ubuntu-22.04
+        node-version:
+          - '18'
         leia-test:
           - examples/7.1
           - examples/7.2
           - examples/7.4
           - examples/8.1
           - examples/8.1-mysql8
-        lando-version:
-          - 3-dev
-        os:
-          - ubuntu-22.04
-        node-version:
-          - '16'
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -31,21 +31,23 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org
-          cache: yarn
-      - name: Install Yarn dependencies
-        run: yarn install --prefer-offline --frozen-lockfile
+          cache: npm
+      - name: Install NPM dependencies
+        run: npm clean-install --prefer-offline --frozen-lockfile
+      - name: Bundle Deps
+        uses: lando/prepare-release-action@v2
+        with:
+          lando-plugin: true
+          version: dev
+          sync: false
       - name: Setup lando ${{ matrix.lando-version }}
         uses: lando/setup-lando@v2
         with:
           lando-version: ${{ matrix.lando-version }}
           config: |
-            plugins.@lando/laravel=/home/runner/work/laravel/laravel
+            setup.skipCommonPlugins=true
+            setup.plugins.@lando/laravel=/home/runner/work/laravel/laravel
           telemetry: false
-      - name: Verify Lando works and we are dogfooding this plugin for tests
-        run: |
-          lando --clear
-          lando version
-          lando config --path plugins | grep laravel | grep /home/runner/work/laravel/laravel || (echo "::error:: Not dogfooding this plugin correctly!" && exit 1)
       - name: Run Leia Tests
         uses: lando/run-leia-action@v2
         with:
