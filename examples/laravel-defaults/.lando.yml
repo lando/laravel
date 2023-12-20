@@ -1,0 +1,6 @@
+name: laravel-defaults
+recipe: laravel
+
+# do not remove this
+plugins:
+  "@lando/laravel": ../..
