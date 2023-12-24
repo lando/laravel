@@ -44,14 +44,14 @@ However if you would like to manually install the plugin, update it to the bleed
 :::: code-group
 ::: code-group-item LANDO 3.21+
 ```bash:no-line-numbers
-lando plugin-add @lando/apache
+lando plugin-add @lando/laravel
 ```
 :::
 ::: code-group-item HYPERDRIVE
 ```bash:no-line-numbers
 # @TODO
 # @NOTE: This doesn't actaully work yet
-hyperdrive install @lando/apache
+hyperdrive install @lando/laravel
 ```
 :::
 ::: code-group-item DOCKER
