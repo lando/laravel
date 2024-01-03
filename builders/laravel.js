@@ -221,6 +221,7 @@ module.exports = {
     via: 'apache',
     webroot: '.',
     xdebug: false,
+    proxy: {},
   },
   builder: (parent, config) => class LandoLaravel extends parent {
     constructor(id, options = {}) {

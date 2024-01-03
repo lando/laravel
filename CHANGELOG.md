@@ -1,10 +1,16 @@
+## v1.0.1 - [January 3, 2024](https://github.com/lando/laravel/releases/tag/v1.0.1)
+
+* Fixed issue with missing proxy URLs.
+
 ## v1.0.0 - [December 7, 2023](https://github.com/lando/laravel/releases/tag/v1.0.0)
-    * Dialed fully for `lando update`
+  
+* Dialed fully for `lando update`
 
 ## v0.9.0 - [July 3, 2023](https://github.com/lando/laravel/releases/tag/v0.9.0)
-  * Removed bundle-dependencies and version-bump-prompt from plugin.
-  * Updated package to use prepare-release-action.
-  * Updated documentation to reflect new release process.
+
+* Removed bundle-dependencies and version-bump-prompt from plugin.
+* Updated package to use prepare-release-action.
+* Updated documentation to reflect new release process.
 
 ## v0.8.0 - [February 24, 2022](https://github.com/lando/laravel/releases/tag/v0.8.0)
 
