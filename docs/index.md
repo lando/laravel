@@ -8,7 +8,7 @@ next: ./getting-started.html
 
 Laravel is The PHP Framework For Web Artisans.
 
-Lando offers a configurable [recipe](https://docs.lando.dev/config/recipes.html) for developing [Laravel](https://laravel.com) apps.
+Lando offers a configurable [recipe](https://docs.lando.dev/core/v3/recipes.html) for developing [Laravel](https://laravel.com) apps.
 
 #### Features of this plugin:
 
