@@ -39,9 +39,9 @@
 # We need this so preview environments and the base site look ok on their own
 [[redirects]]
   from = "/"
-  to = "/laravel"
+  to = "/plugins/laravel"
   status = 200
 [[redirects]]
-  from = "/laravel/*"
+  from = "/plugins/laravel/*"
   to = "/:splat"
   status = 200
