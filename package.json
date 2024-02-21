@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@lando/mariadb": "^1.0.0",
+    "@lando/mssql": "^1.0.0",
     "@lando/mysql": "^1.0.0",
     "@lando/nginx": "^1.0.0",
     "@lando/php": "^1.0.0",
