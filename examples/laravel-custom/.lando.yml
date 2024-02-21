@@ -6,6 +6,7 @@ config:
   via: nginx:1.17
   webroot: bob
   database: mysql:5.7
+  cache: memcached:1.5.12
   xdebug: true
   config:
     database: config/mysql.cnf

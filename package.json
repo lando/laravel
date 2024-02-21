@@ -43,25 +43,26 @@
   },
   "dependencies": {
     "@lando/mariadb": "^1.0.0",
+    "@lando/memcached": "^1.1.0",
     "@lando/mssql": "^1.0.0",
     "@lando/mysql": "^1.0.0",
     "@lando/nginx": "^1.0.0",
-    "@lando/php": "^1.0.0",
+    "@lando/php": "^1.2.0",
     "@lando/postgres": "^1.0.0",
     "@lando/redis": "^1.0.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.16.0",
-    "@lando/leia": "^0.6.5",
+    "@babel/eslint-parser": "^7.23.10",
+    "@lando/leia": "^0.6.7",
     "@lando/vitepress-theme-default-plus": "^1.0.0-beta.39",
-    "chai": "^4.3.4",
+    "chai": "~4.3.4",
     "command-line-test": "^1.0.10",
-    "eslint": "^7.32.0",
-    "eslint-config-google": "^0.9.1",
-    "eslint-plugin-vue": "^8.0.3",
-    "mocha": "^9.1.2",
+    "eslint": "^8.56.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-vue": "^9.21.1",
+    "mocha": "^10.3.0",
     "nyc": "^15.1.0",
-    "vitepress": "^1.0.0-rc.42"
+    "vitepress": "^1.0.0-rc.44"
   }
 }
