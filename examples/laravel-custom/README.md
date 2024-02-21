@@ -40,6 +40,9 @@ lando mysql -V | grep 5.7
 # Should be able to connect to the database with the default creds
 lando mysql laravel -e quit
 
+# Should be running memcached 1.5.12
+lando ssh -s cache -c "memcached --version | grep 1.5.12"
+
 # Should have xdebug enabled
 lando php -m | grep Xdebug
 
