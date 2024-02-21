@@ -1,8 +1,8 @@
- 'use strict';
+'use strict';
 
- const chai = require('chai');
- chai.should();
+const chai = require('chai');
+chai.should();
 
- describe('auth', () => {
-   it('should have tests');
- });
+describe('auth', () => {
+  it('should have tests');
+});

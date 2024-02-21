@@ -14,7 +14,7 @@ const loadScripts = options => {
     const dest = lando.utils.moveConfig(path.join(landoPhpPath, 'scripts'), confDir);
     lando.utils.makeExecutable(fs.readdirSync(dest), dest);
     lando.log.debug('automoved scripts from %s to %s and set to mode 755',
-      path.join(landoPhpPath, 'scripts'), confDir);
+        path.join(landoPhpPath, 'scripts'), confDir);
   }
 };
 
