@@ -1,3 +1,16 @@
+## v1.3.0 - [February 27, 2024](https://github.com/lando/laravel/releases/tag/v1.3.0)
+
+### New Features
+
+* Makes `php:8.3` the default version. [#45](https://github.com/lando/laravel/issues/45)
+* Added support for `php:8.3`
+* Added support for `php:8.2` [#23](https://github.com/lando/laravel/issues/23)
+* Make sure path to mysql.cnf is correct.
+
+### Internal
+
+* Updated to `@lando/php@1.2.0`
+
 ## v1.2.0 - [February 21, 2024](https://github.com/lando/laravel/releases/tag/v1.2.0)
 
 * Updated memcached plugin to [v1.1.0](https://github.com/lando/memcached/releases/tag/v1.1.0).
