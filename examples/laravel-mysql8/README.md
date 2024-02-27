@@ -17,7 +17,7 @@ lando poweroff
 # Initialize an empty laravel recipe
 rm -rf mysql8 && mkdir -p mysql8 && cd mysql8
 lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel-mysql8 --option cache=redis --option php='8.1' --option database=mysql:8.0.22
-cp -f ../../.lando.local.yml .lando.local.yml && cat .lando.local.yml
+cp -f ../../.lando.upstream.yml .lando.upstream.yml && cat .lando.upstream.yml
 
 # Should compose create-project a new laravel app
 cd mysql8
@@ -66,6 +66,11 @@ lando ssh -s cache -c "redis-cli CONFIG GET databases"
 # Should use the default database connection info
 cd mysql8
 lando mysql -ularavel -plaravel laravel -e quit
+
+# Should use the defauly mysql8 config file
+cd mysql8
+lando ssh -s database -c "cat /opt/bitnami/mysql/conf/my_custom.cnf" | grep "LANDOLARAVELMYSQL8CNF"
+lando mysql -u root -e "show variables;" | grep innodb_lock_wait_timeout | grep 127
 
 # Should have artisan available
 cd mysql8

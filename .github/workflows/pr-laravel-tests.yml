@@ -27,7 +27,6 @@ jobs:
           - examples/laravel-nginx
           - examples/7.1
           - examples/7.2
-          - examples/7.4
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

@@ -1,2 +1,2 @@
 plugins:
-  "@lando/laravel": ../../..
+  "@lando/laravel": ./../../../
