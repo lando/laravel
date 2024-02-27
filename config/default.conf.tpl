@@ -1,3 +1,5 @@
+# LANDOWORDPRESSNGINXCONF
+
 server {
 
     listen 80 default_server;
