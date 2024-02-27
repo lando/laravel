@@ -1,7 +1,7 @@
 #
 # The MySQL database server configuration file for Lando
 #
-# LANDOWORDPRESSMYSQLCNF
+# LANDOLARAVELMYSQLCNF
 
 [mysqld]
 #
