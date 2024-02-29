@@ -26,6 +26,13 @@ const getCache = cache => {
   }
 };
 
+/*
+ * Helper to get database type
+ */
+const getDatabaseType = options => {
+  return _.get(options, '_app.config.services.database.type', options.database) ?? 'mysql';
+};
+
 // Tooling defaults
 const toolingDefaults = {
   'composer': {
@@ -105,11 +112,12 @@ const getConfigDefaults = options => {
   // Get the viaconf
   if (_.startsWith(options.via, 'nginx')) options.defaultFiles.vhosts = 'default.conf.tpl';
 
-  // Get the default db conf
-  const dbConfig = _.get(options, 'database', 'mysql');
+  // attempt to discover the database that is actually being used
+  // @NOTE: this will look to see if database is overridden
+  const dbConfig = getDatabaseType(options);
   const database = _.first(dbConfig.split(':'));
   const version = _.last(dbConfig.split(':')).substring(0, 2);
-  if (database === 'mysql' || database === 'mariadb') {
+  if (database === 'laravel-mysql' || database === 'mysql' || database === 'mariadb') {
     if (version === '8.') {
       options.defaultFiles.database = 'mysql8.cnf';
     } else {
@@ -243,6 +251,7 @@ module.exports = {
       options.defaultFiles = _.merge({}, getConfigDefaults(_.cloneDeep(options)), options.defaultFiles);
       options.services = _.merge({}, getServices(options), options.services);
       options.tooling = _.merge({}, getTooling(options), options.tooling);
+
       // Add in artisan tooling
       // @NOTE: does artisan always live one up of the webroot?
       options.tooling.artisan = {

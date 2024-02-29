@@ -1,3 +1,10 @@
+
+## v1.3.1 - [February 29, 2024](https://github.com/lando/laravel/releases/tag/v1.3.1)
+
+### Fixes
+
+* Improved `database` selection for purposes of `config` loading, fixes some `database` bootup issues when the `database` type is overriden downstream
+
 ## v1.3.0 - [February 27, 2024](https://github.com/lando/laravel/releases/tag/v1.3.0)
 
 ### New Features
@@ -25,7 +32,7 @@
 * Fixed issue with missing proxy URLs.
 
 ## v1.0.0 - [December 7, 2023](https://github.com/lando/laravel/releases/tag/v1.0.0)
-  
+
 * Dialed fully for `lando update`
 
 ## v0.9.0 - [July 3, 2023](https://github.com/lando/laravel/releases/tag/v0.9.0)
