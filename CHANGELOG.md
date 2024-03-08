@@ -1,3 +1,6 @@
+## v1.4.0 - [March 8, 2024](https://github.com/lando/laravel/releases/tag/v1.4.0)
+  * Updated to latest database services.
+
 
 ## v1.3.1 - [February 29, 2024](https://github.com/lando/laravel/releases/tag/v1.3.1)
 
