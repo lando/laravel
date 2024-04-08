@@ -28,7 +28,7 @@ lando init \
 # Install laravel
 lando composer create-project laravel/laravel app
 
-# To install any additional packages
+# Optional: install any additional packages
 cd app
 lando composer require laravel/breeze --dev
 lando artisan breeze:install
