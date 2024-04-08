@@ -26,7 +26,12 @@ lando init \
   --name my-first-laravel-app
 
 # Install laravel
-lando ssh -c "composer create-project laravel/laravel app"
+lando composer create-project laravel/laravel app
+
+# Optional: install any additional packages
+cd app
+lando composer require laravel/breeze --dev
+lando artisan breeze:install
 
 # Start it up
 lando start
