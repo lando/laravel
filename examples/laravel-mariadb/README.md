@@ -1,5 +1,5 @@
-Laravel PHP 7.2 Example
-===============
+Laravel MariaDB Example
+=======================
 
 This example exists primarily to test the following documentation:
 
@@ -15,16 +15,16 @@ Run the following commands to get up and running with this example.
 lando poweroff
 
 # Initialize an empty laravel recipe
-rm -rf laravel && mkdir -p laravel && cd laravel
+rm -rf mariadb && mkdir -p mariadb && cd mariadb
+lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel-mariadb --option cache=redis --option php='8.3' --option database=mariadb:11.3
 cp -f ../../.lando.upstream.yml .lando.upstream.yml && cat .lando.upstream.yml
-lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel --option cache=redis --option php='7.2' --option composer_version='1-latest'
 
 # Should composer create-project a new laravel app
-cd laravel
+cd mariadb
 lando composer create-project --prefer-dist laravel/laravel app
 
 # Should start up successfully
-cd laravel
+cd mariadb
 lando start
 ```
 
@@ -35,40 +35,45 @@ Run the following commands to validate things are rolling as they should.
 
 ```bash
 # Should return the laravel default page
-cd laravel
+cd mariadb
 lando ssh -s appserver -c "curl -L localhost" | grep "Laravel"
 
-# Should install 3.x version of laravel/installer
-cd laravel
-lando ssh -s appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v3.'
+# Should install 4.x version of laravel/installer
+cd mariadb
+lando ssh -s appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v4.'
 
-# Should use 7.2 as the default php version
-cd laravel
-lando php -v | grep "PHP 7.2"
+# Should use 8.3 as the default php version
+cd mariadb
+lando php -v | grep "PHP 8.3"
 
 # Should be running apache 2.4 by default
-cd laravel
+cd mariadb
 lando ssh -s appserver -c "apachectl -V | grep 2.4"
 lando ssh -s appserver -c "curl -IL localhost" | grep Server | grep 2.4
 
-# Should be running mysql 5.7 by default
-cd laravel
-lando mysql -V | grep 5.7
+# Should be running mariadb 11.3.x by default
+cd mariadb
+lando mariadb -V | grep 11.3.
 
 # Should not enable xdebug by default
-cd laravel
+cd mariadb
 lando php -m | grep xdebug || echo $? | grep 1
 
 # Should have redis running
-cd laravel
+cd mariadb
 lando ssh -s cache -c "redis-cli CONFIG GET databases"
 
 # Should use the default database connection info
-cd laravel
-lando mysql -ularavel -plaravel laravel -e quit
+cd mariadb
+lando mariadb -ularavel -plaravel laravel -e quit
+
+# Should use the default mariadb config file
+cd mariadb
+lando ssh -s database -c "cat /opt/bitnami/mariadb/conf/my_custom.cnf" | grep "innodb_lock_wait_timeout = 121"
+lando mariadb -u root -e "show variables;" | grep innodb_lock_wait_timeout | grep 121
 
 # Should have artisan available
-cd laravel
+cd mariadb
 lando artisan env
 ```
 
@@ -79,7 +84,7 @@ Run the following commands to trash this app like nothing ever happened.
 
 ```bash
 # Should be destroyed with success
-cd laravel
+cd mariadb
 lando destroy -y
 lando poweroff
 ```

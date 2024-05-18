@@ -19,7 +19,7 @@ rm -rf laravel && mkdir -p laravel && cd laravel
 cp -f ../../.lando.upstream.yml .lando.upstream.yml && cat .lando.upstream.yml
 lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel --option cache=redis --option php='7.1' --option composer_version='1-latest'
 
-# Should compose create-project a new laravel app
+# Should composer create-project a new laravel app
 cd laravel
 lando composer create-project --prefer-dist laravel/laravel app
 
@@ -42,7 +42,7 @@ lando ssh -s appserver -c "curl -L localhost" | grep "Laravel"
 cd laravel
 lando ssh -s appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v2.'
 
-# Should use 7.4 as the default php version
+# Should use 7.1 as the default php version
 cd laravel
 lando php -v | grep "PHP 7.1"
 
