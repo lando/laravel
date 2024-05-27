@@ -27,6 +27,8 @@ jobs:
           - examples/laravel-export
           - examples/laravel-import
           - examples/laravel-init
+          - examples/laravel-mariadb
+          - examples/laravel-mariadb-mysql
           - examples/laravel-mysql8
           - examples/laravel-nginx
 

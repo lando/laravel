@@ -1,12 +1,18 @@
-## v1.4.0 - [March 8, 2024](https://github.com/lando/laravel/releases/tag/v1.4.0)
-  * Updated to latest database services.
+## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Updated mariadb plugin [#51](https://github.com/lando/mariadb/issues/51)
+* Use mysql command for MariaDB 10.3.x and below
+* Cleaned up test comments
+
+## v1.4.0 - [March 8, 2024](https://github.com/lando/laravel/releases/tag/v1.4.0)
+
+* Updated to latest database services.
 
 ## v1.3.1 - [February 29, 2024](https://github.com/lando/laravel/releases/tag/v1.3.1)
 
 ### Fixes
 
-* Improved `database` selection for purposes of `config` loading, fixes some `database` bootup issues when the `database` type is overriden downstream
+* Improved `database` selection for purposes of `config` loading, fixes some `database` bootup issues when the `database` type is overridden downstream
 
 ## v1.3.0 - [February 27, 2024](https://github.com/lando/laravel/releases/tag/v1.3.0)
 
@@ -49,8 +55,9 @@
 * Add compatibility for MySQL 8.x [lando/lando#1426](https://github.com/lando/lando/issues/1462)
 
 ## v0.7.0 - [December 12, 2022](https://github.com/lando/laravel/releases/tag/v0.7.0)
-  * Added bundle-dependencies to release process.
-  * Fixed bug in plugin dogfooding test.
+
+* Added bundle-dependencies to release process.
+* Fixed bug in plugin dogfooding test.
 
 ## v0.6.0 - [September 8, 2022](https://github.com/lando/laravel/releases/tag/v0.6.0)
 
