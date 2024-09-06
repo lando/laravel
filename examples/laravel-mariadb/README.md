@@ -13,18 +13,18 @@ Run the following commands to get up and running with this example.
 # Should poweroff
 lando poweroff
 
-# Initialize an empty laravel recipe
+# Should initialize an empty laravel recipe
 rm -rf mariadb && mkdir -p mariadb && cd mariadb
 lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel-mariadb --option cache=redis --option php='8.3' --option database=mariadb:11.3
+
+# Should start up successfully
+cd mariadb
 cp -f ../../.lando.upstream.yml .lando.upstream.yml && cat .lando.upstream.yml
+lando start
 
 # Should composer create-project a new laravel app
 cd mariadb
 lando composer create-project --prefer-dist laravel/laravel app
-
-# Should start up successfully
-cd mariadb
-lando start
 ```
 
 ## Verification commands

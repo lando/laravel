@@ -13,18 +13,18 @@ Run the following commands to get up and running with this example.
 # Should poweroff
 lando poweroff
 
-# Initialize an empty laravel recipe
+# Should initialize an empty laravel recipe
 rm -rf laravel && mkdir -p laravel && cd laravel
 lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel --option cache=redis
+
+# Should start up successfully
+cd laravel
 cp -f ../../.lando.upstream.yml .lando.upstream.yml && cat .lando.upstream.yml
+lando start
 
 # Should composer create-project a new laravel app
 cd laravel
 lando composer create-project --prefer-dist laravel/laravel app
-
-# Should start up successfully
-cd laravel
-lando start
 ```
 
 ## Verification commands
@@ -38,7 +38,7 @@ lando exec appserver -- curl -L localhost | grep "Laravel"
 
 # Should install 4.x version of laravel/installer
 cd laravel
-lando exec appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v4.'
+lando exec appserver -- "cd /var/www/.composer && composer show laravel/installer" | grep 'v4.'
 
 # Should use 8.3 as the default php version
 cd laravel

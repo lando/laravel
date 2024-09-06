@@ -12,7 +12,7 @@ Run the following commands to get up and running with this example.
 # Should poweroff
 lando poweroff
 
-# Initialize an empty laravel recipe
+# Should initialize an empty laravel recipe
 rm -rf laravel && mkdir -p laravel && cd laravel
 lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel --option cache=redis --option php='7.1' --option composer_version='1-latest'
 
@@ -37,7 +37,7 @@ lando exec appserver -- curl -L localhost | grep "Laravel"
 
 # Should install 2.x version of laravel/installer
 cd laravel
-lando exec appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v2.'
+lando exec appserver -- "cd /var/www/.composer && composer show laravel/installer" | grep 'v2.'
 
 # Should use 7.1 as the default php version
 cd laravel
