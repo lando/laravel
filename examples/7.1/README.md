@@ -14,16 +14,16 @@ lando poweroff
 
 # Initialize an empty laravel recipe
 rm -rf laravel && mkdir -p laravel && cd laravel
-cp -f ../../.lando.upstream.yml .lando.upstream.yml && cat .lando.upstream.yml
 lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel --option cache=redis --option php='7.1' --option composer_version='1-latest'
+
+# Should start up successfully
+cd laravel
+cp -f ../../.lando.upstream.yml .lando.upstream.yml && cat .lando.upstream.yml
+lando start
 
 # Should composer create-project a new laravel app
 cd laravel
 lando composer create-project --prefer-dist laravel/laravel app
-
-# Should start up successfully
-cd laravel
-lando start
 ```
 
 ## Verification commands
