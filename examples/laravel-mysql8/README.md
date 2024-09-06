@@ -13,18 +13,18 @@ Run the following commands to get up and running with this example.
 # Should poweroff
 lando poweroff
 
-# Initialize an empty laravel recipe
+# Should initialize an empty laravel recipe
 rm -rf mysql8 && mkdir -p mysql8 && cd mysql8
 lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel-mysql8 --option cache=redis --option php='8.1' --option database=mysql:8.0.22
+
+# Should start up successfully
+cd mysql8
 cp -f ../../.lando.upstream.yml .lando.upstream.yml && cat .lando.upstream.yml
+lando start
 
 # Should composer create-project a new laravel app
 cd mysql8
 lando composer create-project --prefer-dist laravel/laravel app
-
-# Should start up successfully
-cd mysql8
-lando start
 ```
 
 ## Verification commands
@@ -38,7 +38,7 @@ lando exec appserver -- curl -L localhost | grep "Laravel"
 
 # Should install 4.x version of laravel/installer
 cd mysql8
-lando exec appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v4.'
+lando exec appserver -- "cd /var/www/.composer && composer show laravel/installer" | grep 'v4.'
 
 # Should use 8.1 as the default php version
 cd mysql8
