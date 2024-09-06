@@ -7,8 +7,7 @@ This example exists primarily to test the following documentation:
 
 Versions of MariaDB 10.3.x and lower do not have the mariadb command and must use the mysql executable.
 
-Start up tests
---------------
+## Start up tests
 
 Run the following commands to get up and running with this example.
 
@@ -30,19 +29,18 @@ cd mariadb
 lando start
 ```
 
-Verification commands
----------------------
+## Verification commands
 
 Run the following commands to validate things are rolling as they should.
 
 ```bash
 # Should return the laravel default page
 cd mariadb
-lando ssh -s appserver -c "curl -L localhost" | grep "Laravel"
+lando exec appserver -- curl -L localhost | grep "Laravel"
 
 # Should install 4.x version of laravel/installer
 cd mariadb
-lando ssh -s appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v4.'
+lando exec appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v4.'
 
 # Should use 8.3 as the default php version
 cd mariadb
@@ -50,8 +48,8 @@ lando php -v | grep "PHP 8.3"
 
 # Should be running apache 2.4 by default
 cd mariadb
-lando ssh -s appserver -c "apachectl -V | grep 2.4"
-lando ssh -s appserver -c "curl -IL localhost" | grep Server | grep 2.4
+lando exec appserver -- apachectl -V | grep 2.4
+lando exec appserver -- curl -IL localhost | grep Server | grep 2.4
 
 # Should be running mariadb 10.3.x by default
 cd mariadb
@@ -63,7 +61,7 @@ lando php -m | grep xdebug || echo $? | grep 1
 
 # Should have redis running
 cd mariadb
-lando ssh -s cache -c "redis-cli CONFIG GET databases"
+lando exec cache -- redis-cli CONFIG GET databases
 
 # Should use the default database connection info
 cd mariadb
@@ -71,7 +69,7 @@ lando mysql -ularavel -plaravel laravel -e quit
 
 # Should use the default mariadb config file
 cd mariadb
-lando ssh -s database -c "cat /opt/bitnami/mariadb/conf/my_custom.cnf" | grep "innodb_lock_wait_timeout = 121"
+lando exec database -- cat /opt/bitnami/mariadb/conf/my_custom.cnf | grep "innodb_lock_wait_timeout = 121"
 lando mysql -u root -e "show variables;" | grep innodb_lock_wait_timeout | grep 121
 
 # Should have artisan available
@@ -79,8 +77,7 @@ cd mariadb
 lando artisan env
 ```
 
-Destroy tests
--------------
+## Destroy tests
 
 Run the following commands to trash this app like nothing ever happened.
 

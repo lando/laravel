@@ -1,12 +1,10 @@
-Laravel PHP 7.1 Example
-===============
+# Laravel PHP 7.1 Example
 
 This example exists primarily to test the following documentation:
 
 * [Laravel Recipe](https://docs.devwithlando.io/tutorials/laravel.html)
 
-Start up tests
---------------
+## Start up tests
 
 Run the following commands to get up and running with this example.
 
@@ -28,19 +26,18 @@ cd laravel
 lando start
 ```
 
-Verification commands
----------------------
+## Verification commands
 
 Run the following commands to validate things are rolling as they should.
 
 ```bash
 # Should return the laravel default page
 cd laravel
-lando ssh -s appserver -c "curl -L localhost" | grep "Laravel"
+lando exec appserver -- curl -L localhost | grep "Laravel"
 
 # Should install 2.x version of laravel/installer
 cd laravel
-lando ssh -s appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v2.'
+lando exec appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v2.'
 
 # Should use 7.1 as the default php version
 cd laravel
@@ -48,8 +45,8 @@ lando php -v | grep "PHP 7.1"
 
 # Should be running apache 2.4 by default
 cd laravel
-lando ssh -s appserver -c "apachectl -V | grep 2.4"
-lando ssh -s appserver -c "curl -IL localhost" | grep Server | grep 2.4
+lando exec appserver -- apachectl -V | grep 2.4
+lando exec appserver -- curl -IL localhost | grep Server | grep 2.4
 
 # Should be running mysql 5.7 by default
 cd laravel
@@ -61,7 +58,7 @@ lando php -m | grep xdebug || echo $? | grep 1
 
 # Should have redis running
 cd laravel
-lando ssh -s cache -c "redis-cli CONFIG GET databases"
+lando exec cache -- redis-cli CONFIG GET databases
 
 # Should use the default database connection info
 cd laravel
@@ -72,8 +69,7 @@ cd laravel
 lando artisan env
 ```
 
-Destroy tests
--------------
+## Destroy tests
 
 Run the following commands to trash this app like nothing ever happened.
 

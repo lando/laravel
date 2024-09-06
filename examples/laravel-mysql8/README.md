@@ -5,8 +5,7 @@ This example exists primarily to test the following documentation:
 
 * [Laravel Recipe](https://docs.devwithlando.io/tutorials/laravel.html)
 
-Start up tests
---------------
+## Start up tests
 
 Run the following commands to get up and running with this example.
 
@@ -28,19 +27,18 @@ cd mysql8
 lando start
 ```
 
-Verification commands
----------------------
+## Verification commands
 
 Run the following commands to validate things are rolling as they should.
 
 ```bash
 # Should return the laravel default page
 cd mysql8
-lando ssh -s appserver -c "curl -L localhost" | grep "Laravel"
+lando exec appserver -- curl -L localhost | grep "Laravel"
 
 # Should install 4.x version of laravel/installer
 cd mysql8
-lando ssh -s appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v4.'
+lando exec appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v4.'
 
 # Should use 8.1 as the default php version
 cd mysql8
@@ -48,8 +46,8 @@ lando php -v | grep "PHP 8.1"
 
 # Should be running apache 2.4 by default
 cd mysql8
-lando ssh -s appserver -c "apachectl -V | grep 2.4"
-lando ssh -s appserver -c "curl -IL localhost" | grep Server | grep 2.4
+lando exec appserver -- apachectl -V | grep 2.4
+lando exec appserver -- curl -IL localhost | grep Server | grep 2.4
 
 # Should be running mysql 8.0.x by default
 cd mysql8
@@ -61,7 +59,7 @@ lando php -m | grep xdebug || echo $? | grep 1
 
 # Should have redis running
 cd mysql8
-lando ssh -s cache -c "redis-cli CONFIG GET databases"
+lando exec cache -- redis-cli CONFIG GET databases
 
 # Should use the default database connection info
 cd mysql8
@@ -69,7 +67,7 @@ lando mysql -ularavel -plaravel laravel -e quit
 
 # Should use the default mysql8 config file
 cd mysql8
-lando ssh -s database -c "cat /opt/bitnami/mysql/conf/my_custom.cnf" | grep "LANDOLARAVELMYSQL8CNF"
+lando exec database -- cat /opt/bitnami/mysql/conf/my_custom.cnf | grep "LANDOLARAVELMYSQL8CNF"
 lando mysql -u root -e "show variables;" | grep innodb_lock_wait_timeout | grep 127
 
 # Should have artisan available
@@ -77,8 +75,7 @@ cd mysql8
 lando artisan env
 ```
 
-Destroy tests
--------------
+## Destroy tests
 
 Run the following commands to trash this app like nothing ever happened.
 
