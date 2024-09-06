@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.5.1 - [September 6, 2024](https://github.com/lando/laravel/releases/tag/v1.5.1)
+
 ## Bug Fixes
 
 * Fixed bug causing default `proxy` settings to be clobbered by user specified ones
