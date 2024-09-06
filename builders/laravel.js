@@ -206,6 +206,18 @@ const getDbTooling = database => {
 };
 
 /*
+ * Helper to get proxy config
+ */
+const getProxy = (options, proxyService = 'appserver') => {
+  // get any intial proxy stuff for proxyService
+  const urls = _.get(options, `_app.config.proxy.${proxyService}`, []);
+  // add
+  urls.push(`${options.app}.${options._app._config.domain}`);
+  // return
+  return {[proxyService]: _.uniq(_.compact(urls))};
+};
+
+/*
  * Helper to get service config
  */
 const getServiceConfig = (options, types = ['php', 'server', 'vhosts']) => {
@@ -267,8 +279,15 @@ module.exports = {
         options.services.cache = getCache(options.cache);
       }
 
+      // Switch the proxy if needed
+      if (!_.has(options, 'proxyService')) {
+        if (_.startsWith(options.via, 'nginx')) options.proxyService = 'appserver_nginx';
+        else if (_.startsWith(options.via, 'apache')) options.proxyService = 'appserver';
+      }
+
       // Rebase on top of any default config we might already have
       options.defaultFiles = _.merge({}, getConfigDefaults(_.cloneDeep(options)), options.defaultFiles);
+      options.proxy = _.merge({}, getProxy(options, options.proxyService), options.proxy);
       options.services = _.merge({}, getServices(options), options.services);
       options.tooling = _.merge({}, getTooling(options), options.tooling);
 
@@ -278,13 +297,6 @@ module.exports = {
         service: 'appserver',
         cmd: `php /app/${options.webroot}/../artisan`,
       };
-
-      // Switch the proxy if needed
-      if (!_.has(options, 'proxyService')) {
-        if (_.startsWith(options.via, 'nginx')) options.proxyService = 'appserver_nginx';
-        else if (_.startsWith(options.via, 'apache')) options.proxyService = 'appserver';
-      }
-      options.proxy = _.set(options.proxy, options.proxyService, [`${options.app}.${options._app._config.domain}`]);
 
       // Send downstream
       super(id, _.merge({}, config, options));
