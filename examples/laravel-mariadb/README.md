@@ -38,7 +38,7 @@ lando exec appserver -- curl -L localhost | grep "Laravel"
 
 # Should install 4.x version of laravel/installer
 cd mariadb
-lando exec appserver -c 'cd /var/www/.composer && composer show laravel/installer' | grep 'v4.'
+lando exec appserver -- "cd /var/www/.composer && composer show laravel/installer" | grep 'v4.'
 
 # Should use 8.3 as the default php version
 cd mariadb
