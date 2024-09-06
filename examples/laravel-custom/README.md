@@ -54,6 +54,10 @@ lando exec cache -- memcached --version | grep 1.5.12
 # Should have xdebug enabled
 lando php -m | grep Xdebug
 
+# Should have proxy urls present in lando info
+lando info | grep "http://laravel-custom.lndo.site"
+lando info | grep "http://another.laravel-custom.lndo.site"
+
 # Should be using custom config files
 lando exec appserver -- curl -L appserver_nginx/info.php | grep max_execution_time | grep 92
 lando exec appserver_nginx -- cat /opt/bitnami/nginx/conf/vhosts/lando.conf | grep server_name | grep pirog

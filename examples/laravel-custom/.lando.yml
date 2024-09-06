@@ -1,4 +1,7 @@
 name: laravel-custom
+proxy:
+  appserver_nginx:
+    - another.laravel-custom.lndo.site
 recipe: laravel
 config:
   php: '8.3'
