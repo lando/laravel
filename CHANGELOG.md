@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.6.0 - [September 30, 2024](https://github.com/lando/laravel/releases/tag/v1.6.0)
+
 * Updated lando/mariadb to v1.5.0.
 * Updated lando/mysql to v1.3.0.
 
