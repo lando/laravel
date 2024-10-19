@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.7.1 - [October 19, 2024](https://github.com/lando/laravel/releases/tag/v1.7.1)
+
 * Deployed just for docs update
 
 ## v1.7.0 - [October 18, 2024](https://github.com/lando/laravel/releases/tag/v1.7.0)
