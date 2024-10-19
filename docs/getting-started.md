@@ -25,6 +25,9 @@ lando init \
   --webroot app/public \
   --name my-first-laravel-app
 
+# Start it up
+lando start
+
 # Install laravel
 lando composer create-project laravel/laravel app
 
@@ -32,9 +35,6 @@ lando composer create-project laravel/laravel app
 cd app
 lando composer require laravel/breeze --dev
 lando artisan breeze:install
-
-# Start it up
-lando start
 
 # List information about this app.
 lando info
