@@ -10,6 +10,7 @@ config:
   webroot: bob
   database: mysql:5.7
   cache: memcached:1.5.12
+  ssl: true
   xdebug: true
   config:
     database: config/mysql.cnf
