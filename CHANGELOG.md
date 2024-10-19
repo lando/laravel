@@ -1,8 +1,10 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Deployed just for docs update
+
 ## v1.7.0 - [October 18, 2024](https://github.com/lando/laravel/releases/tag/v1.7.0)
 
-  * Updated lando/php to v1.5.0.
+* Updated to [@lando/php@1.5.0](https://github.com/lando/php/releases/tag/v1.5.0)
 
 ## v1.6.0 - [September 30, 2024](https://github.com/lando/laravel/releases/tag/v1.6.0)
 
