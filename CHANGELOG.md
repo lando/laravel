@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+  * Removed unnecessary dependency lando/nginx.
+
 ## v1.7.1 - [October 19, 2024](https://github.com/lando/laravel/releases/tag/v1.7.1)
 
 * Deployed just for docs update
