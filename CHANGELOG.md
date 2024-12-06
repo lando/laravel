@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.8.3 - [December 6, 2024](https://github.com/lando/laravel/releases/tag/v1.8.3)
+
 * Updated the version index.md to get Docuverse page to build correctly.
 
 ## v1.8.2 - [December 4, 2024](https://github.com/lando/laravel/releases/tag/v1.8.2)
