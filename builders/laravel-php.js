@@ -22,11 +22,11 @@ const loadScripts = options => {
 module.exports = {
   name: 'laravel-php',
   parent: '_appserver',
-  builder: (parent, config) => class LaravelPhp extends LandoPhp.builder(parent, LandoPhp.config) {
+  builder: parent => class LaravelPhp extends LandoPhp.builder(parent, LandoPhp.config) {
     constructor(id, options = {}, factory) {
       loadScripts(options);
       options.nginxServiceType = 'laravel-nginx';
       super(id, options, factory);
-    };
+    }
   },
 };

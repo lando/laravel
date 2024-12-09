@@ -7,9 +7,9 @@ const LandoMariadb = require('./../node_modules/@lando/mariadb/builders/mariadb.
 module.exports = {
   name: 'laravel-mariadb',
   parent: '_service',
-  builder: (parent, config) => class LaravelMariadb extends LandoMariadb.builder(parent, LandoMariadb.config) {
+  builder: parent => class LaravelMariadb extends LandoMariadb.builder(parent, LandoMariadb.config) {
     constructor(id, options = {}) {
       super(id, options, {services: _.set({}, options.name)});
-    };
+    }
   },
 };
