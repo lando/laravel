@@ -12,11 +12,11 @@ jobs:
       fail-fast: false
       matrix:
         lando-version:
-          - 3-edge-slim
+          - 3-edge
         os:
           - ubuntu-24.04
         node-version:
-          - '18'
+          - '20'
         leia-test:
           - examples/7.1
           - examples/7.2

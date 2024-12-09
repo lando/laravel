@@ -7,7 +7,7 @@ description: Use Laravel on Lando for local development; powered by Docker and D
 
 Laravel is The PHP Framework For Web Artisans.
 
-Lando offers a configurable [recipe](https://docs.lando.dev/core/v3/recipes.html) for developing [Laravel](https://laravel.com) apps.
+Lando offers a configurable [recipe](https://docs.lando.dev/landofile/recipes.html) for developing [Laravel](https://laravel.com) apps.
 
 #### Features of this plugin:
 
