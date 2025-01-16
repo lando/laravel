@@ -1,30 +1,31 @@
 'use strict';
 
-const _ = require('lodash');
-const fs = require('fs');
 const path = require('path');
 const landoPhpPath = path.join(__dirname, '../node_modules/@lando/php');
 const LandoPhp = require(`${landoPhpPath}/builders/php.js`);
 
-const loadScripts = options => {
-  const lando = _.get(options, '_app._lando');
-  // Move the script to the confDir and make executable.
-  if (fs.existsSync(path.join(landoPhpPath, 'scripts'))) {
-    const confDir = path.join(lando.config.userConfRoot, 'scripts');
-    const dest = lando.utils.moveConfig(path.join(landoPhpPath, 'scripts'), confDir);
-    lando.utils.makeExecutable(fs.readdirSync(dest), dest);
-    lando.log.debug('automoved scripts from %s to %s and set to mode 755',
-        path.join(landoPhpPath, 'scripts'), confDir);
-  }
-};
-
-// Builder
+/**
+ * Laravel PHP builder class that extends Lando PHP builder.
+ * Uses the bundled version of @lando/php plugin instead of user's version.
+ *
+ * @module laravel-php
+ */
 module.exports = {
   name: 'laravel-php',
   parent: '_appserver',
+  /**
+   * Builder function that returns the LaravelPhp class
+   * @param {Object} parent - Parent builder class
+   * @return {Class} LaravelPhp class extending LandoPhp builder
+   */
   builder: parent => class LaravelPhp extends LandoPhp.builder(parent, LandoPhp.config) {
+    /**
+     * Create a new LaravelPhp instance
+     * @param {string} id - Service id
+     * @param {Object} options - Service options
+     * @param {Object} factory - App factory instance
+     */
     constructor(id, options = {}, factory) {
-      loadScripts(options);
       options.nginxServiceType = 'laravel-nginx';
       super(id, options, factory);
     }
