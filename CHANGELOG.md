@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Updated lando/php to v1.7.1.
+
 ## v1.9.0 - [December 9, 2024](https://github.com/lando/laravel/releases/tag/v1.9.0)
 
 * Optimized for `midcore`
