@@ -30,7 +30,7 @@ Note that if the above config options are not enough, all Lando recipes can be f
 
 ## Choosing a php version
 
-You can set `php` to any version that is available in our [php service](https://docs.lando.dev/plugins/php). However, you should consult the [Laravel requirements](https://laravel.com/docs/5.7/installation#web-server-configuration) to make sure that version is actually supported by Laravel itself.
+You can set `php` to any version that is available in our [php service](https://docs.lando.dev/plugins/php/index.html). However, you should consult the [Laravel requirements](https://laravel.com/docs/5.7/installation#web-server-configuration) to make sure that version is actually supported by Laravel itself.
 
 The [recipe config](https://docs.lando.dev/landofile/recipes.html#config) to set the Laravel recipe to use `php` version `7.1` is shown below:
 
@@ -52,7 +52,7 @@ config:
 
 ## Choosing a web server
 
-By default, this recipe will be served by the default version of our [apache](https://docs.lando.dev/plugins/apache) service but you can also switch this to use [`nginx`](https://docs.lando.dev/plugins/nginx). We *highly recommend* you check out both the [apache](https://docs.lando.dev/plugins/apache) and [nginx](https://docs.lando.dev/plugins/nginx) services before you change the default `via`.
+By default, this recipe will be served by the default version of our [apache](https://docs.lando.dev/plugins/apache/index.html) service but you can also switch this to use [`nginx`](https://docs.lando.dev/plugins/nginx/index.html). We *highly recommend* you check out both the [apache](https://docs.lando.dev/plugins/apache/index.html) and [nginx](https://docs.lando.dev/plugins/nginx/index.html) services before you change the default `via`.
 
 #### With Apache (default)
 
@@ -72,9 +72,9 @@ config:
 
 ## Choosing a database backend
 
-By default, this recipe will use the default version of our [mysql](https://docs.lando.dev/plugins/mysql) service as the database backend but you can also switch this to use [`mariadb`](https://docs.lando.dev/plugins/mariadb) or ['postgres'](https://docs.lando.dev/plugins/postgres) instead. Note that you can also specify a version *as long as it is a version available for use with lando* for either `mysql`, `mariadb` or `postgres`.
+By default, this recipe will use the default version of our [mysql](https://docs.lando.dev/plugins/mysql/index.html) service as the database backend but you can also switch this to use [`mariadb`](https://docs.lando.dev/plugins/mariadb/index.html) or ['postgres'](https://docs.lando.dev/plugins/postgres/index.html) instead. Note that you can also specify a version *as long as it is a version available for use with lando* for either `mysql`, `mariadb` or `postgres`.
 
-If you are unsure about how to configure the `database`, we *highly recommend* you check out the [mysql](https://docs.lando.dev/plugins/mysql), [mariadb](https://docs.lando.dev/plugins/mariadb) and ['postgres'](https://docs.lando.dev/plugins/postgres) services before you change the default.
+If you are unsure about how to configure the `database`, we *highly recommend* you check out the [mysql](https://docs.lando.dev/plugins/mysql/index.html), [mariadb](https://docs.lando.dev/plugins/mariadb/index.html) and ['postgres'](https://docs.lando.dev/plugins/postgres/index.html) services before you change the default.
 
 Also note that like the configuration of the `php` version, you should consult the [Laravel requirements](https://laravel.com/docs/5.7/database#configuration) to make sure the `database` and `version` you select is actually supported by Laravel itself.
 
@@ -114,9 +114,9 @@ config:
 
 By default, this recipe will not spin up a caching backend.
 
-However, you can specify one using the `cache` recipe config and setting it to use either our use [`redis`](https://docs.lando.dev/plugins/redis) or [`memcached`](https://docs.lando.dev/plugins/memcached) service. Note that you can optionally/additionally specify a particular version for either *as long as it is a version documented as available for use with lando* for either service.
+However, you can specify one using the `cache` recipe config and setting it to use either our use [`redis`](https://docs.lando.dev/plugins/redis/index.html) or [`memcached`](https://docs.lando.dev/plugins/memcached/index.html) service. Note that you can optionally/additionally specify a particular version for either *as long as it is a version documented as available for use with lando* for either service.
 
-If you are unsure about how to configure the `cache`, we *highly recommend* you check out our [redis](https://docs.lando.dev/plugins/redis) and [memcached](https://docs.lando.dev/plugins/memcached) docs as well as the [Laravel ones](https://laravel.com/docs/5.7/cache#configuration).
+If you are unsure about how to configure the `cache`, we *highly recommend* you check out our [redis](https://docs.lando.dev/plugins/redis/index.html) and [memcached](https://docs.lando.dev/plugins/memcached/index.html) docs as well as the [Laravel ones](https://laravel.com/docs/5.7/cache#configuration).
 
 #### Using redis (recommended)
 
