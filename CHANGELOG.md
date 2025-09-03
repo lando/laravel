@@ -1,6 +1,12 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
-* Updated lando/php to v1.7.1.
+* Switched images to [bitnamilegacy](https://github.com/bitnami/containers/issues/83267) namespace
+* Updated to [@lando/mariadb@1.7.0](https://github.com/lando/mariadb/releases/tag/v1.7.0)
+* Updated to [@lando/memcached@1.4.2](https://github.com/lando/mongo/releases/tag/v1.4.2)
+* Updated to [@lando/mysql@1.6.0](https://github.com/lando/mysql/releases/tag/v1.6.0)
+* Updated to [@lando/php@1.8.0](https://github.com/lando/php/releases/tag/v1.8.0)
+* Updated to [@lando/postgres@1.5.0](https://github.com/lando/postgres/releases/tag/v1.5.0)
+* Updated default `nginx` version to `1.29`
 
 ## v1.9.0 - [December 9, 2024](https://github.com/lando/laravel/releases/tag/v1.9.0)
 

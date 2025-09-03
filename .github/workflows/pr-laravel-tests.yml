@@ -13,13 +13,12 @@ jobs:
       matrix:
         lando-version:
           - 3-edge
+          - 3-stable
         os:
           - ubuntu-24.04
         node-version:
           - '20'
         leia-test:
-          - examples/7.1
-          - examples/7.2
           - examples/laravel-custom
           - examples/laravel-downstreamer-1
           - examples/laravel-downstreamer-2
