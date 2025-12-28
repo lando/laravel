@@ -30,6 +30,7 @@ jobs:
           - examples/laravel-mariadb-mysql
           - examples/laravel-mysql8
           - examples/laravel-nginx
+          - examples/laravel-php85
 
     steps:
       - name: Checkout code
