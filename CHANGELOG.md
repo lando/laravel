@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.11.0 - [December 30, 2025](https://github.com/lando/laravel/releases/tag/v1.11.0)
+
 * Updated to [@lando/mariadb@1.8.0](https://github.com/lando/mariadb/releases/tag/v1.8.0)
 * Updated to [@lando/php@1.9.0](https://github.com/lando/php/releases/tag/v1.9.0)
 
