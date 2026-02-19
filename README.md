@@ -43,6 +43,7 @@ We try to log all changes big and small in both [THE CHANGELOG](https://github.c
 
 ## Maintainers
 
+* [@AaronFeledy](https://github.com/AaronFeledy)
 * [@pirog](https://github.com/pirog)
 * [@reynoldsalec](https://github.com/reynoldsalec)
 
