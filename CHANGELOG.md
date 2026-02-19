@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.12.0 - [February 19, 2026](https://github.com/lando/laravel/releases/tag/v1.12.0)
+
 ## v1.12.0 - [February 18, 2026](https://github.com/lando/laravel/releases/tag/v1.12.0)
 
 * Updated to [@lando/php@1.10.0](https://github.com/lando/php/releases/tag/v1.10.0)
