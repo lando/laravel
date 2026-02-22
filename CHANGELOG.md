@@ -1,6 +1,6 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
-* Updated `@lando/php` to `^1.11.0` for MySQL client auto-detection fix
+* Updated to [@lando/php@1.11.1](https://github.com/lando/php/releases/tag/v1.11.1) for PHP 8.5 support, database client auto-detection, and more.
 
 ## v1.12.0 - [February 18, 2026](https://github.com/lando/laravel/releases/tag/v1.12.0)
 
