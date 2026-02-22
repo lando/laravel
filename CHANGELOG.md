@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.12.1 - [February 22, 2026](https://github.com/lando/laravel/releases/tag/v1.12.1)
+
 * Updated to [@lando/php@1.11.1](https://github.com/lando/php/releases/tag/v1.11.1) for PHP 8.5 support, database client auto-detection, and more.
 
 ## v1.12.0 - [February 19, 2026](https://github.com/lando/laravel/releases/tag/v1.12.0)
