@@ -12,11 +12,11 @@ Here are the configuration options, set to the default values, for this recipe's
 ```yaml
 recipe: laravel
 config:
-  php: '7.4'
-  composer_version: '2.2.12'
+  php: '8.3'
+  composer_version: '2-latest'
   via: apache:2.4
   webroot: .
-  database: mysql:5.7
+  database: mysql:8.0
   cache: none
   xdebug: false
   config:
@@ -30,14 +30,14 @@ Note that if the above config options are not enough, all Lando recipes can be f
 
 ## Choosing a php version
 
-You can set `php` to any version that is available in our [php service](https://docs.lando.dev/plugins/php/index.html). However, you should consult the [Laravel requirements](https://laravel.com/docs/5.7/installation#web-server-configuration) to make sure that version is actually supported by Laravel itself.
+You can set `php` to any version that is available in our [php service](https://docs.lando.dev/plugins/php/index.html). However, you should consult the [Laravel requirements](https://laravel.com/docs/11.x/deployment#server-requirements) to make sure that version is actually supported by Laravel itself.
 
-The [recipe config](https://docs.lando.dev/landofile/recipes.html#config) to set the Laravel recipe to use `php` version `7.1` is shown below:
+The [recipe config](https://docs.lando.dev/landofile/recipes.html#config) to set the Laravel recipe to use `php` version `8.2` is shown below:
 
 ```yaml
 recipe: laravel
 config:
-  php: '7.1'
+  php: '8.2'
 ```
 
 ## Choosing a composer version
@@ -47,7 +47,7 @@ You can set `composer_version` to any version that is available in our [php serv
 ```yaml
 recipe: laravel
 config:
-  composer_version: '1.10.1'
+  composer_version: '2-latest'
 ```
 
 ## Choosing a web server
@@ -76,7 +76,7 @@ By default, this recipe will use the default version of our [mysql](https://docs
 
 If you are unsure about how to configure the `database`, we *highly recommend* you check out the [mysql](https://docs.lando.dev/plugins/mysql/index.html), [mariadb](https://docs.lando.dev/plugins/mariadb/index.html) and ['postgres'](https://docs.lando.dev/plugins/postgres/index.html) services before you change the default.
 
-Also note that like the configuration of the `php` version, you should consult the [Laravel requirements](https://laravel.com/docs/5.7/database#configuration) to make sure the `database` and `version` you select is actually supported by Laravel itself.
+Also note that like the configuration of the `php` version, you should consult the [Laravel requirements](https://laravel.com/docs/11.x/database#configuration) to make sure the `database` and `version` you select is actually supported by Laravel itself.
 
 #### Using MySQL (default)
 
@@ -116,7 +116,7 @@ By default, this recipe will not spin up a caching backend.
 
 However, you can specify one using the `cache` recipe config and setting it to use either our use [`redis`](https://docs.lando.dev/plugins/redis/index.html) or [`memcached`](https://docs.lando.dev/plugins/memcached/index.html) service. Note that you can optionally/additionally specify a particular version for either *as long as it is a version documented as available for use with lando* for either service.
 
-If you are unsure about how to configure the `cache`, we *highly recommend* you check out our [redis](https://docs.lando.dev/plugins/redis/index.html) and [memcached](https://docs.lando.dev/plugins/memcached/index.html) docs as well as the [Laravel ones](https://laravel.com/docs/5.7/cache#configuration).
+If you are unsure about how to configure the `cache`, we *highly recommend* you check out our [redis](https://docs.lando.dev/plugins/redis/index.html) and [memcached](https://docs.lando.dev/plugins/memcached/index.html) docs as well as the [Laravel ones](https://laravel.com/docs/11.x/cache#configuration).
 
 #### Using redis (recommended)
 

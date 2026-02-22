@@ -15,8 +15,6 @@ Before you get started with this recipe, we assume that you have:
 ## Quick Start
 
 Try out the relevant commands below to spin up a new Landoified vanilla Laravel site.
-
-For the latest version of laravel 9
 ```bash
 # Initialize a laravel recipe
 lando init \
