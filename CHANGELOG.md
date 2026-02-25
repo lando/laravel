@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.12.2 - [February 25, 2026](https://github.com/lando/laravel/releases/tag/v1.12.2)
+
 * Updated to [@lando/php@1.11.2](https://github.com/lando/php/releases/tag/v1.11.2) for composer install fix and MariaDB mysqldump compatibility.
 
 ## v1.12.1 - [February 22, 2026](https://github.com/lando/laravel/releases/tag/v1.12.1)
