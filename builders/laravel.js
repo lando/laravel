@@ -37,7 +37,7 @@ const getDatabaseType = options => {
 const toolingDefaults = {
   'composer': {
     service: 'appserver',
-    cmd: 'composer --ansi',
+    cmd: 'composer',
   },
   'db-import <file>': {
     service: ':host',
