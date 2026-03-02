@@ -57,3 +57,7 @@
   from = "/plugins/laravel/*"
   to = "/:splat"
   status = 200
+
+[build.environment]
+  # Cache buster - change value to force fresh npm install
+  NETLIFY_CACHE_BUST = "2026-03-02"
