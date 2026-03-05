@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+## v1.12.3 - [March 5, 2026](https://github.com/lando/laravel/releases/tag/v1.12.3)
+
 * Removed `--ansi` flag from composer tooling command to prevent escape codes in redirected output
 * Fixed MySQL 8.4 startup failure by removing hardcoded `mysql_native_password` authentication [lando/mysql#69](https://github.com/lando/mysql/issues/69)
 
