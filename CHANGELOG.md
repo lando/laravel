@@ -1,5 +1,7 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
+* Updated to [@lando/php@1.12.0](https://github.com/lando/php/releases/tag/v1.12.0) for mod_headers/mod_expires and xdebug log fix
+
 ## v1.12.3 - [March 5, 2026](https://github.com/lando/laravel/releases/tag/v1.12.3)
 
 * Removed `--ansi` flag from composer tooling command to prevent escape codes in redirected output
