@@ -15,7 +15,7 @@ lando poweroff
 
 # Should initialize an empty laravel recipe
 rm -rf mysql8 && mkdir -p mysql8 && cd mysql8
-lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel-mysql8 --option cache=redis --option php='8.1' --option database=mysql:8.0.22
+lando init --source cwd --recipe laravel --webroot app/public --name lando-laravel-mysql8 --option cache=redis --option php='8.3' --option database=mysql:8.0.22
 
 # Should start up successfully
 cd mysql8
@@ -40,9 +40,9 @@ lando exec appserver -- curl -L localhost | grep "Laravel"
 cd mysql8
 lando exec appserver -- "cd /var/www/.composer && composer show laravel/installer" | grep 'v4.'
 
-# Should use 8.1 as the default php version
+# Should use 8.3 as the default php version
 cd mysql8
-lando php -v | grep "PHP 8.1"
+lando php -v | grep "PHP 8.3"
 
 # Should be running apache 2.4 by default
 cd mysql8
