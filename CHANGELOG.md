@@ -1,6 +1,8 @@
 ## {{ UNRELEASED_VERSION }} - [{{ UNRELEASED_DATE }}]({{ UNRELEASED_LINK }})
 
 * Updated to [@lando/php@1.12.0](https://github.com/lando/php/releases/tag/v1.12.0) to enable mod_headers/mod_expires by default and fix xdebug log ownership
+* Fixed MySQL 8.2+ failing to start by replacing the removed `expire_logs_days` setting with `binlog_expire_logs_seconds` [lando/laravel#114](https://github.com/lando/laravel/issues/114)
+* Fixed `mysql:8` loading the MySQL 5.7 config file and failing to start
 
 ## v1.12.3 - [March 5, 2026](https://github.com/lando/laravel/releases/tag/v1.12.3)
 
